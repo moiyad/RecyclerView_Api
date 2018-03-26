@@ -22,6 +22,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main"/>
+    <include
+        layout="@layout/content_main"
+        tools:layout_editor_absoluteY="216dp" />
 
 </android.support.design.widget.CoordinatorLayout>
