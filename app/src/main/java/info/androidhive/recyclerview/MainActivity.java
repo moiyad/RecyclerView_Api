@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Retrofit retrofit;
 
     @Inject
-    Call<List<Movie>> call;
+    MovieApi api;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Dagger2
         component = DaggerMainActivityComponent.builder()
-                .mainActivityModule(new MainActivityModule())
                 .build();
 
-        call = component.getCall();
+        api = component.getCall();
+        Call<List<Movie>> call = api.getMovie();
 
         call.enqueue(new Callback<List<Movie>>() {
             @Override

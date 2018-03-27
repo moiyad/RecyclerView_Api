@@ -1,5 +1,8 @@
 package info.androidhive.recyclerview.dI;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
 
 import dagger.Module;
@@ -17,6 +20,7 @@ import retrofit2.http.GET;
 @Module
 public class MainActivityModule {
 
+
     @Provides
     @MainActivityScope
      public Retrofit retrofit(){
@@ -24,13 +28,14 @@ public class MainActivityModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(MovieApi.URL)
                 .build();
+
     }
+
 
     @Provides
     @MainActivityScope
-    public Call<List<Movie>> callBack(Retrofit retrofit){
-         return retrofit.create(MovieApi.class)
-                 .getMovie();
-    }
+    public MovieApi movieApi(Retrofit retrofit){
+         return retrofit.create(MovieApi.class);
 
+    }
 }

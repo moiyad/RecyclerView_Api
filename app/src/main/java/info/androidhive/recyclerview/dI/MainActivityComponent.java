@@ -4,6 +4,7 @@ import java.util.List;
 
 import dagger.Component;
 import info.androidhive.recyclerview.Movie;
+import info.androidhive.recyclerview.MovieApi;
 import retrofit2.Call;
 
 /**
@@ -13,5 +14,5 @@ import retrofit2.Call;
 @Component(modules = MainActivityModule.class)
 public interface MainActivityComponent {
 
-    Call<List<Movie>> getCall();
+    MovieApi getCall();
 }
